@@ -5,7 +5,7 @@ const {TWITTER_CONFIG} = require('./config');
 const db = admin.database();
 const client = new Twitter(TWITTER_CONFIG);
 const SEARCH_PARAMS = {
-    q: '#tellme300',
+    q: '#say300',
     result_type: 'recent',
     count: 100,
 };
