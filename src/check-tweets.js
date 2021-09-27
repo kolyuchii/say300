@@ -24,7 +24,7 @@ exports.checkTweets = functions.pubsub.schedule('every 5 minutes').onRun(async (
             SEARCH_PARAMS.since_id = lastTweetId;
         }
     }, errorObject => {
-        console.log("The read failed: " + errorObject.code);
+        console.warn("The read failed: " + errorObject.code);
     });
 
     console.log('SEARCH TWEETS', SEARCH_PARAMS);
@@ -100,6 +100,23 @@ function say300() {
         'специалиста', 'министра', 'магистра', 'премьер-министра', 'кациста', 'навальниста',
     ];
 
-    const rand = Math.floor(Math.random() * arrayOfRhymes.length);
-    return 'Отсоси у ' + arrayOfRhymes[rand];
+    const arrayOfSynonyms = [
+        'Возьми в рот',
+        'Отсоси',
+        'Начинай чмызать',
+        'Иди фабать',
+        'Подсоси',
+        'Пососи',
+        'Иррумируй',
+        'Фелляция',
+        'Оральный секс',
+        'Пенилинкция',
+        'Фаллаторизм',
+    ];
+
+    return `${getRandomElement(arrayOfSynonyms)} у ${getRandomElement(arrayOfRhymes)}`;
+}
+
+function getRandomElement(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
 }
